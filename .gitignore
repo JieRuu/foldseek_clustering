@@ -1,0 +1,17 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Results
+results/*
+!results/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep

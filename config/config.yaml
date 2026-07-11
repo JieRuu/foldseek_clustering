@@ -1,0 +1,24 @@
+project:
+  name: foldseek_clustering
+
+paths:
+  results_root: results
+
+input:
+  pdb_list: pdb_list.txt
+
+  antigen_fasta: antigens_wt.fasta
+  nanobody_fasta: nanobodies_wt.fasta
+
+preprocessing:
+  antigen_only_dir: antigen_only_pdb
+  qc_report: antigen_extraction_qc.csv
+  nanobody_similarity_threshold: 0.80
+
+foldseek:
+  threshold: 0.70
+  output_dir: foldseek
+
+curation:
+  label_synonyms: label_synonyms.tsv
+  final_group_mapping: final_group_mapping.tsv

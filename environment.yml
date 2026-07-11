@@ -1,0 +1,24 @@
+name: foldseek-clustering
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.11
+
+  - pandas
+  - numpy
+
+  - biopython
+
+  - pyyaml
+
+  - jupyter
+  - ipykernel
+
+  - pip
+
+  - pip:
+      - python-dotenv
+      - python-Levenshtein
