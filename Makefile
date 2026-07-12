@@ -150,6 +150,14 @@ benchmark-sensitivity: $(MASTER_TABLE)
 threshold-sweep: $(MASTER_TABLE)                ## Medoid + members for thresholds 5..50
 	$(PY) $(SCRIPTS)/curation/sweep_thresholds.py
 
+# 5d. Full per-nanobody member tables + summary across all thresholds.
+#     Reads the sweep output (t{N}/cluster_members) and the master table,
+#     writes per-nanobody tables (tsv + multi-sheet xlsx) and a summary
+#     workbook (Overview + per-threshold group counts). Run threshold-sweep first.
+.PHONY: member-tables
+member-tables: threshold-sweep                  ## Per-nanobody member tables + summary (tsv + xlsx)
+	$(PY) $(SCRIPTS)/curation/build_member_tables.py
+
 # =====================================================================
 # Aggregate diagnostics + housekeeping
 # =====================================================================

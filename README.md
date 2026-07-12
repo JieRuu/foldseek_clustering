@@ -1,5 +1,10 @@
 # Nanobody–Antigen Structural Clustering Pipeline
 
+> M.Sc. research project (Computational Biology & Bioinformatics, University of Göttingen),
+> carried out in the Söding group (Quantitative and Computational Biology) at the
+> Max Planck Institute for Multidisciplinary Sciences, under the day-to-day supervision
+> of a senior PhD researcher. Antigen clustering is built on **Foldseek**, developed in the same group.
+
 A two-stage clustering pipeline that builds a diverse, biologically representative
 benchmark set of nanobody–antigen complexes for evaluating computational
 structural-biology tools (e.g. binding-affinity predictors, AlphaFold Initial Guess).
@@ -89,6 +94,13 @@ make benchmark       # select nanobody representatives (final output)
 make diagnostics     # all non-critical-path QC / summary scripts
 ```
 
+Threshold analysis (optional, for choosing the mutation threshold):
+
+```bash
+make threshold-sweep   # medoids + members for thresholds 5–50
+make member-tables     # per-nanobody member tables + summary workbook (xlsx)
+```
+
 ---
 
 ## Scripts
@@ -127,6 +139,8 @@ structure-level IDs.
 | `build_nanobody_group_master_table.py` | final group mapping, nanobody FASTA | `curation/nanobody_group_master_table.tsv` |
 | `select_nanobody_representatives.py` | master table | `benchmark/*` (representatives, subclusters, summary) |
 | `mutant_threshold_sensitivity_analysis.py` | master table | `qc/nanobody_threshold_sensitivity*.tsv` (diagnostic) |
+| `sweep_thresholds.py` | master table | `benchmark/threshold_sweep/t{N}/*` — medoids + members for thresholds 5–50 |
+| `build_member_tables.py` | sweep output + master table | per-nanobody member tables (tsv + multi-sheet xlsx) and summary workbook |
 
 `build_final_groups.py` uses the Foldseek structure clusters as the backbone and
 merges manual antigen labels onto them; unlabelled structures are flagged
