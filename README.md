@@ -172,5 +172,4 @@ See `environment.yml` for the full pinned environment.
 
 ## Status
 
-Active research project. The antigen-grouping and nanobody-representative stages are
-complete; downstream negative-set construction and tool benchmarking are in progress.
+Completed as an M.Sc. research project (04–08/2026). Downstream negative-set construction and tool benchmarking were continued by the group.
